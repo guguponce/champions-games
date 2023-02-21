@@ -1,0 +1,54 @@
+@import "../base/Settings.scss";
+
+.header {
+  width: 100vw;
+  min-height: 100px;
+  margin: 0rem auto 1rem;
+  padding: 1rem;
+
+  position: relative;
+  z-index: 300;
+  border-bottom: 2px solid #fefefe;
+  @include flex(row, center, center);
+
+  display: grid;
+  grid-template-columns: 50px calc(100vw - 120px) 50px;
+  grid-template-areas: "icon title free";
+
+  &#homepage-header {
+    & > h1 {
+      font-size: 2.25rem;
+    }
+  }
+
+  .game-title {
+    grid-area: title;
+    text-align: center;
+    font-size: 2rem;
+    color: #fefefe;
+    margin: 0 0.75rem;
+    padding: 0;
+    @media (max-width: $regmob-width) {
+      font-size: 1.5rem;
+    }
+  }
+  #home-icon {
+    grid-area: icon;
+    width: 50px;
+    height: 50px;
+    border: 2px solid $white;
+    border-radius: 0.25rem;
+    // position: absolute;
+    // left: 25px;
+    // top: 25px;
+    cursor: pointer;
+    background-image: url("/assets/home-icon.svg");
+    background-position: center;
+    background-size: 75%;
+    background-repeat: no-repeat;
+    &:hover {
+      filter: invert(16%) sepia(50%) saturate(3206%) hue-rotate(359deg)
+        brightness(102%) contrast(102%);
+    }
+  }
+}

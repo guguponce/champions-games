@@ -1,0 +1,114 @@
+@import "../base/Settings.scss";
+
+#MemoryGame {
+  position: relative;
+  margin: 0 auto;
+  @include flex(column, flex-start, center);
+  #level-lives-container {
+    @include flex(row, space-around, center);
+    width: 100%;
+    margin: 0 0 0.1rem;
+    & > * {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+  }
+  #memory-game-title {
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+  #board {
+    margin: 0;
+    position: relative;
+    width: 95%;
+    // grid-template-columns: repeat(2, 1fr);
+    // gap: 5px;
+    @include flex(row, center, center);
+    flex-wrap: wrap;
+    @media (min-width: $tablet-width) {
+      width: clamp(768px, 100%, 1100px);
+    }
+    .card-container {
+      .card {
+        margin: 2px;
+        width: 150px;
+        aspect-ratio: 1;
+        background-color: $blue;
+        border: 3px solid $blue;
+        border-radius: 1rem;
+        position: relative;
+        transform-style: preserve-3d;
+
+        .front-face,
+        .back-face {
+          background-color: $blue;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+          font-size: 1.2rem;
+          border-radius: 0.5rem;
+          @include flex(column, center, center);
+          text-align: center;
+          & > * {
+            margin: 0;
+          }
+        }
+        .front-face {
+          @include flex(column, center, center);
+          background: radial-gradient(
+            rgb(231, 175, 44) 15%,
+            $white 30%,
+            $white 48%,
+            $blue 50%
+          );
+          .sun {
+            width: 60%;
+            border-radius: 50%;
+            padding: 0.5rem;
+            aspect-ratio: 1;
+            background-color: $white;
+            background-image: url("/assets/sun-argentina.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+          }
+        }
+        .back-face {
+          position: relative;
+          transform: rotateY(180deg);
+          bottom: 100%;
+          background-position-y: top;
+          background-position-x: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+}
+
+.flip-exit {
+  transform: rotateY(0deg);
+}
+.flip-exit-active {
+  transform: rotateY(180deg);
+  transition: transform 300ms;
+  // cubic-bezier(0.4, 0.65, 0.78, 0.55);
+}
+.flip-exit-done {
+  transform: rotateY(180deg);
+}
+.flip-enter {
+  transform: rotateY(180deg);
+}
+.flip-enter-active {
+  transform: rotateY(0deg);
+  transition: transform 200ms cubic-bezier(0.4, 0.65, 0.78, 0.55) 300ms;
+}
+.flip-enter-done {
+  transform: rotateY(0deg);
+}

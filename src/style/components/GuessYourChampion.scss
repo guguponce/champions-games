@@ -1,0 +1,176 @@
+#GuessYourChampion {
+  #guess-your-champion-container {
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-rows: 60vh 100px auto;
+    grid-template-areas: "img" "select" "results";
+    @media screen and (min-width: 600px) {
+      grid-template-rows: 70vh 175px auto;
+    }
+    @media (min-width: $laptop-width) {
+      grid-template-rows: 175px calc(100vh - 350px);
+      grid-template-columns: 600px 400px;
+      grid-template-areas: "img select" "img results";
+      justify-content: center;
+    }
+    #img-container {
+      grid-area: img;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+      border: 2px solid $blue;
+      margin-bottom: 1rem;
+      @include flex(column, center, center);
+      #champion-img {
+        width: 100%;
+        height: 90%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: start;
+
+        border-radius: 1rem;
+        &.blur {
+          filter: blur(5px);
+        }
+      }
+      & > h2 {
+        color: #fefefe;
+        text-align: center;
+        
+    @media  (max-width: $regmob-width) {
+     font-size: 1.25rem; 
+    }
+      }
+      #img-name {
+        margin: 1rem 0;
+      }
+    }
+
+    #selection-box {
+      grid-area: select;
+      border: 1px solid #eee;
+      width: 80%;
+      margin: 0.5rem auto;
+      @include flex(column, space-around, center);
+      @media (min-width: $tablet-width) {
+        height: 150px;
+        justify-items: center;
+      }
+      #game-finished-result{
+        &>*{
+          font-size: 5rem;
+          text-align: center;
+        }
+      }
+      select {
+        background-color: #fefefe;
+        background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+        border-radius: 0.25em;
+        padding: 0.2em 0.75em;
+        font-family: Printvetica;
+        font-weight: lighter;
+        font-size: 1.25rem;
+        cursor: pointer;
+        border: 1px solid #777;
+        position: relative;
+        margin: 0;
+        text-align: center;
+        min-width: clamp(150px, 50%, 300px);
+        outline: none;
+        line-height: inherit;
+    @media  (max-width: $regmob-width) {
+    max-width: 95%;
+    font-size: 1rem;
+    }
+        &:disabled {
+          cursor: not-allowed;
+          background-color: #eee;
+          background-image: linear-gradient(to top, #ddd, #eee 33%);
+        }
+        & > option {
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+      }
+      select::-ms-expand {
+        display: none;
+      }
+      #next-player-btn {
+        background: linear-gradient(to top, #ebe053, #ebcf53);
+      }
+    }
+  }
+}
+
+#results-box {
+  grid-area: results;
+  align-self: flex-start;
+  width: 100%;
+  height: 290px;
+  
+  max-width: 570px;
+  margin: 2rem auto;
+  display: grid;
+  grid-template-areas: "title title" "corrects incorrects";
+  grid-template-columns: 48% 48%;
+  grid-template-rows: 4rem calc(100% - 5rem);
+  gap: 3px;
+  justify-content: center;
+  background-color: $blue;
+  color: #04081f;
+  align-content: space-around;
+  @media (min-width: $tablet-width) {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    max-height: 450px;
+  }
+  #results-title {
+    width: 100%;
+    padding: 1rem 0;
+    margin: 0;
+    height: 100%;
+    // border-bottom: 3px solid $blue;
+    grid-area: title;
+    background-color: white;
+    text-align: center;
+  }
+  .correct-incorrect-container {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .correct-incorrect-title {
+      margin: 0;
+      padding: 0.25rem;
+      text-align: center;
+      text-decoration: underline;
+    }
+    ul {
+      display: block;
+      width: 98%;
+      margin: 0.25rem auto;
+      padding: 0;
+      list-style: none;
+      &:first-of-type {
+        grid-area: corrects;
+      }
+      &:last-of-type {
+        grid-area: incorrects;
+      }
+
+      li {
+        width: 95%;
+        margin: 0;
+        margin-left: 0.5rem;
+        @include flex(row, flex-start, flex-start);
+        span {
+          margin: 0 0.1rem;
+        }
+      }
+    }
+  }
+}

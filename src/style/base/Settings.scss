@@ -1,0 +1,111 @@
+$blue: #529ed1;
+$white: #fefefe;
+$secundary-color: #39abaa;
+$third-color: #fff0db;
+$gradient-red: linear-gradient(to right, #ad3b3b, #c15454);
+$negative-primary-color: #ad3b3b;
+
+// Color
+.b {
+  border: 1px solid red;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+$minmob-width: 320px;
+$regmob-width: 480px;
+$mobile-width: 600px;
+$tablet-width: 768px;
+$laptop-width: 1024px;
+$desktop-width: 1200px;
+$tv-width: 1920px;
+
+@font-face {
+  font-family: Printvetica;
+  src: url("../assets/fonts/Printvetica.otf");
+}
+@mixin flex($dir, $jus, $alig) {
+  display: flex;
+  justify-content: $jus;
+  align-items: $alig;
+  flex-direction: $dir;
+}
+
+// header
+// body
+
+// anchor tags
+a {
+  text-decoration: none;
+}
+
+// input
+input[type="number"] {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+// page container
+
+.container {
+  width: 60%;
+  @include flex(column, flex-start, center);
+  flex-wrap: nowrap;
+  margin: 3rem auto;
+  border: 3px solid #39abaa;
+  border-radius: 10px;
+  z-index: 300;
+  background-color: $third-color;
+  background-image: linear-gradient(62deg, #ffefd8 0%, $third-color 100%);
+}
+.button-plain {
+  box-sizing: border-box;
+  align-self: center;
+  margin: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 100 ease-in;
+  &:active {
+    padding: 0.6rem 0.85rem;
+    border: 0.15rem solid #fefefe;
+    border-radius: 10px;
+  }
+
+  background-size: 200% 100%;
+  background-position: 0 0;
+  transition: background-position 0.5s ease 0.2s;
+  &:hover {
+    background-position: 90% 0;
+    outline: 3px solid hsl(35, 100%, 50%) ;
+  }
+}
+.button-confirm {
+  color: white;
+  background-image: linear-gradient(
+    to right,
+    hsl(40, 100%, 50%) 0%,
+    hsl(40, 100%, 65%) 51%,
+    hsl(40, 100%, 50%) 100%
+  );
+}
+.button-reject {
+  box-sizing: border-box;
+  color: white;
+  background-image: $gradient-red;
+  border: 3px solid $negative-primary-color;
+
+  transition: border 5s ease-out;
+  &:hover {
+    outline: 2px solid #c15454;
+  }
+}
