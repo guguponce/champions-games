@@ -45,7 +45,7 @@
             width: clamp(100px, 20%, 150px);
           }
           @media (min-width: $desktop-width) {
-            width: clamp(150px, 20%, 200px);
+            width: clamp(150px, 80%, 200px);
           }
           &:hover {
             background-color: hsl(237, 100%, 65%);

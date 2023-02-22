@@ -45,7 +45,7 @@ export default function Modal({
             {btnText}
           </button>
           <button
-            id="play-btn"
+            id="other-games-btn"
             className="button-plain button-confirm modal-btn"
             onClick={() => navigate("/")}
           >
