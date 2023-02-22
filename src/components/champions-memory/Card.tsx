@@ -89,11 +89,11 @@ export default function Card({
               : windowDimension.width < 480 && cards.length > 16
               ? { width: "60px", height: "60px" }
               : windowDimension.width < 480 && cards.length > 8
-              ? { width: "60px", height: "80px" }
+              ? { width: "80px", height: "80px" }
               : windowDimension.width < 480 && cards.length > 4
               ? { width: "100px" }
               : windowDimension.width < 480 && cards.length === 4
-              ? { width: "40%" }
+              ? { width: "100px" }
               : {}
           }
           className="card"

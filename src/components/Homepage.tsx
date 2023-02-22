@@ -112,7 +112,7 @@ export default function Homepage() {
                 <h3>
                   <span>
                     {gamesPlayed?.typedChampions?.bestResult?.quantity}
-                  </span>{" "}
+                  </span> players
                   in{" "}
                   <span>{gamesPlayed?.typedChampions?.bestResult?.time}</span>!
                   Weren't you Mozart in another life?
