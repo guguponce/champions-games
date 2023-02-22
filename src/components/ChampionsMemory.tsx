@@ -131,7 +131,7 @@ localStorage.clear()
   };
   return (
     <div id="MemoryGame">
-      {level.current === 5 && (
+      {level.current === 1 && (
         <Modal
           toggleModalOn={toggleModalOn}
           buttonText="Would you like to play again?"
