@@ -98,7 +98,7 @@ localStorage.clear()
           })
         );
       }
-      level.current === 4 && toggleGameFinished(true);
+      level.current === 5 && toggleGameFinished(true);
     }
   }, [level.current]);
 
@@ -131,7 +131,7 @@ localStorage.clear()
   };
   return (
     <div id="MemoryGame">
-      {level.current === 4 && (
+      {level.current === 5 && (
         <Modal
           toggleModalOn={toggleModalOn}
           buttonText="Would you like to play again?"
