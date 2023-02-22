@@ -26,19 +26,18 @@ export default function Homepage() {
       setGamesPlayed(JSON.parse(ls));
     }
   }, []);
-  console.log(gamesPlayed);
+  console.log(!!gamesPlayed);
 
   return (
     <div id="homepage-container">
       <Header id="homepage-header">
         <Title title="World Cup Champions Games" />
       </Header>
-      <main id="games-container">
-        <div
-          className={`game-container ${
-            !!gamesPlayed ? "games-played-container" : ""
-          }`}
-        >
+      <main
+        id="games-container"
+        className={!!gamesPlayed ? "games-played-container" : ""}
+      >
+        <div className={"game-container"}>
           <div
             className={`game-link-box ${
               !!gamesPlayed?.guessChampion ? "game-played" : ""
@@ -56,7 +55,7 @@ export default function Homepage() {
 
               {gamesPlayed?.guessChampion?.bestResult && (
                 <h3>
-                  You guessed{" "}
+                  `You guessed{" "}
                   <span>{gamesPlayed?.guessChampion?.bestResult}</span>{" "}
                   {gamesPlayed?.guessChampion?.bestResult === 1
                     ? "champion"
@@ -66,11 +65,7 @@ export default function Homepage() {
             </div>
           )}
         </div>
-        <div
-          className={`game-container ${
-            !!gamesPlayed ? "games-played-container" : ""
-          }`}
-        >
+        <div className="game-container">
           <div
             className={`game-link-box ${
               !!gamesPlayed?.memory ? "game-played" : ""
@@ -97,11 +92,7 @@ export default function Homepage() {
             </div>
           )}
         </div>
-        <div
-          className={`game-container ${
-            !!gamesPlayed ? "games-played-container" : ""
-          }`}
-        >
+        <div className="game-container">
           <div
             className={`game-link-box ${
               !!gamesPlayed?.typedChampions ? "game-played" : ""

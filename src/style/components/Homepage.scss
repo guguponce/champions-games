@@ -1,126 +1,145 @@
 @import "../base/Settings.scss";
 
 #homepage-container {
-    #games-container {
-      margin-top: 2rem;
-      @include flex(column, flex-start, center);
-      gap: 2rem;
-      @media (orientation: portrait) {
-        // height: calc(100vh - 200px);
+  #games-container {
+    max-width: 1080px;
+    margin-top: 2rem;
+    @include flex(column, flex-start, center);
+    gap: 2rem;
+    @media (orientation: portrait) {
+      // height: calc(100vh - 200px);
+    }
+    @media (orientation: landscape) {
+      width: 90%;
+      margin: 0 auto;
+      @include flex(row, space-around, center);
+    }
+    @media (max-width: $regmob-width) {
+      margin-top: 0;
+      display: block;
+    }
+    &.games-played-container {
+      & > .game-container {
+        @include flex(row, flex-start, center);
+        @media (orientation: landscape) {
+          @include flex(column, space-between, center);
+          align-self: flex-start;
+        }
+      }
+    }
+    .game-container {
+      width: clamp(300px, 95vw, 480px);
+      margin: 0;
+      @include flex(row, center, center);
+
+      & > * {
+        text-align: center;
       }
       @media (orientation: landscape) {
-        width: 90%;
-        margin: 0 auto;
-        @include flex(row, space-around, center);
+        width: 250px;
+        max-height: calc(100vh - 200px);
+        @include flex(column, flex-start, center);
       }
       @media (max-width: $regmob-width) {
-        margin-top: 0;
-        display: block;
+        height: 175px;
+        margin: 0 auto;
       }
-      .game-container {
-        width: clamp(300px, 95vw, 480px);
-        margin: 0;
+      .game-link-box {
+        width: 150px;
+        height: 100px;
+        background-color: #646cff;
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: 2rem;
+        margin-left: 1rem;
         @include flex(row, center, center);
-        & > * {
-          text-align: center;
-        }
-        @media (orientation: landscape) {
-          width: 250px;
-          max-height: calc(100vh - 200px);
-          @include flex(column, space-between, center);
-        }
         @media (max-width: $regmob-width) {
-          height: 175px;
-          margin: 0 auto;
+          width: clamp(100px, 20%, 150px);
         }
-        .game-link-box {
-          width: 150px;
-          height: 100px;
+        @media (min-width: $desktop-width) {
+          width: clamp(150px, 80%, 200px);
+        }
+        &:hover {
+          background-color: hsl(237, 100%, 65%);
+          outline: 1px solid $white;
+        }
+        &:active {
           background-color: #646cff;
-          border-radius: 1rem;
-          padding: 1rem;
-          margin: 2rem;
-          @include flex(row, center, center);
-          @media (max-width: $regmob-width) {
-            width: clamp(100px, 20%, 150px);
-          }
-          @media (min-width: $desktop-width) {
-            width: clamp(150px, 80%, 200px);
-          }
-          &:hover {
-            background-color: hsl(237, 100%, 65%);
-            outline: 1px solid $white;
-          }
-          &:active {
-            background-color: #646cff;
-          }
-          a {
-            text-align: center;
-            color: $white;
+        }
+        a {
+          text-align: center;
+          color: $white;
+        }
+      }
+      .game-played {
+        // margin-top: 0;
+        margin: 2rem;
+        margin-left:  calc((214px - 111.68px) *3 / 10);
+        margin-right:  calc((214px - 111.68px) *7 / 10);;
+        background-color: $blue;
+        backdrop-filter: opacity(0.7);
+        position: relative;
+        outline: 2px dotted $blue;
+        outline-offset: 15px;
+        transition: all 300ms ease-in-out;
+      @media (orientation: landscape) {
+        margin-left: 2rem;
+        margin-right: 2rem;
+      }
+        &:hover {
+          &::before {
+            content: "PLAY AGAIN";
+            width: 90%;
           }
         }
-        .game-played {
-          // margin-top: 0;
-          background-color: $blue;
-          backdrop-filter: opacity(0.7);
-          position: relative;
-          outline: 2px dotted $blue;
-          outline-offset: 15px;
-          transition: all 300ms ease-in-out;
-          &:hover {
-            &::before {
-              content: "PLAY AGAIN";
-              width: 90%;
-            }
-          }
-          &::before {
-            content: "PLAYED";
-            text-align: center;
-            line-height: 1rem;
-  
-            position: absolute;
-            transform: translate(-50%, -50%);
-            top: 115%;
-            left: 50%;
-            background-color: #04081f;
+        &::before {
+          content: "PLAYED";
+          text-align: center;
+          line-height: 1rem;
+
+          position: absolute;
+          transform: translate(-50%, -50%);
+          top: 115%;
+          left: 50%;
+          background-color: #04081f;
+          color: $blue;
+        }
+        &:hover {
+          backdrop-filter: none;
+          content: "";
+          @extend .game-link-box;
+        }
+      }
+      .game-results {
+        width: calc(90vw - 100px);
+        height: 200px;
+        @include flex(column, center, center);
+        h2 {
+          color: #747bff;
+          margin: 0;
+        }
+        h3 {
+          margin: 0;
+          & > span {
             color: $blue;
           }
-          &:hover {
-            backdrop-filter: none;
-            content: "";
-            @extend .game-link-box;
-          }
         }
-        .game-results {
-          width: calc(90vw - 100px);
-          height: 200px;
-          @include flex(column, center, center);
+        @media (max-width: $regmob-width) {
+          width: calc(95vw - 150px);
           h2 {
-            color: #747bff;
-            margin: 0;
+            font-size: 1.25rem;
           }
           h3 {
-            margin: 0;
-            & > span {
-              color: $blue;
-            }
+            font-size: 1rem;
           }
-          @media (max-width: $regmob-width) {
-            width: calc(95vw - 150px);
-            h2 {
-              font-size: 1.25rem;
-            }
-            h3 {
-              font-size: 1rem;
-            }
-          }
-          @media (orientation: landscape) {
+        }
+        @media (orientation: landscape) {
           @include flex(column, flex-start, center);
           height: 200px;
-            width: 95%;
-            margin-top: 1rem;
-          }
+          width: 95%;
+          margin-top: 1rem;
         }
       }
     }
   }
+}
