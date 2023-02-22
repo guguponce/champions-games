@@ -20,7 +20,7 @@
       .game-container {
         width: clamp(300px, 95vw, 480px);
         margin: 0;
-        @include flex(row, flex-start, center);
+        @include flex(row, center, center);
         & > * {
           text-align: center;
         }
