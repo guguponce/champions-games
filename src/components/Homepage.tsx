@@ -55,7 +55,7 @@ export default function Homepage() {
 
               {gamesPlayed?.guessChampion?.bestResult && (
                 <h3>
-                  `You guessed{" "}
+                  You guessed{" "}
                   <span>{gamesPlayed?.guessChampion?.bestResult}</span>{" "}
                   {gamesPlayed?.guessChampion?.bestResult === 1
                     ? "champion"
