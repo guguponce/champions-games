@@ -57,7 +57,7 @@ function SelectionComponent({
         </>
       ): 
       <div id="game-finished-result">
-        <h2>{previousPlayers.correct.length} / 26</h2></div>}
+        <h2>{previousPlayers.correct.length} / 10</h2></div>}
     </div>
   );
 }

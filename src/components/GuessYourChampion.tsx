@@ -210,7 +210,7 @@ function GuessYourChampion() {
                   ? "You'll have better luck next time"
                   : "That's what our 🐐 would do"}
               </h3>
-              <h3>You typed {previousPlayers.correct.length}/26 champions</h3>
+              <h3>You typed {previousPlayers.correct.length}/10 champions</h3>
             </div>
           )}
         </Modal>
