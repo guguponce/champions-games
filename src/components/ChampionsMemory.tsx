@@ -75,15 +75,18 @@ export default function ChampionsMemory() {
   useEffect(() => {
     if (level.current > 1) {
       let ls = localStorage.getItem("gamesPlayed");
-      console.log("ls", ls);
 
       if (!!ls) {
         const lsMemory = JSON.parse(ls).memory;
         const newResult = !lsMemory
           ? { memory: { bestResult: level.current - 1 } }
-          : lsMemory.bestResult < level.current - 1
+          : lsMemory.bestResult < level.current - 1 || !lsMemory.bestResult
           ? { memory: { bestResult: level.current - 1 } }
           : { memory: { ...lsMemory } };
+          console.log("newResult", newResult)
+          console.log('lsMemory.bestResult', lsMemory.bestResult)
+          console.log('level.current - 1', level.current - 1)
+          console.log('lsMemory.bestResult < level.current - 1', lsMemory.bestResult< level.current - 1)
         localStorage.setItem(
           "gamesPlayed",
           JSON.stringify({

@@ -21,6 +21,11 @@
     border-radius: 1rem;
     border: 2px solid $white;
     background-color: $blue;
+    @media (min-width: $laptop-width){
+    height: fit-content;
+    z-index: 999;
+    max-height: unset;
+    }
     @include flex(column, space-around, center);
     & > * {
       text-align: center;

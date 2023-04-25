@@ -75,7 +75,6 @@ export default function Homepage() {
           >
             Champions Memory
           </Link>
-
           {!!gamesPlayed?.memory?.bestResult && (
             <div className="game-results">
               <h2>
