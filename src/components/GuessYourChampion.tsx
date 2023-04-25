@@ -165,7 +165,7 @@ function GuessYourChampion() {
       {guessed && <Confeti recycle={recycle} />}
 
       {modalOn && (
-        <Modal toggleModalOn={toggleModalOn} buttonText="Start the game!">
+        <Modal toggleModalOn={toggleModalOn} buttonText="Start game!">
           <div>
             <h3>Instructions</h3>
             <ul>

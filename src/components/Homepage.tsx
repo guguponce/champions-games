@@ -27,6 +27,7 @@ export default function Homepage() {
     }
   }, []);
 
+
   return (
     <div id="homepage-container">
       <Header id="homepage-header">
@@ -118,8 +119,8 @@ export default function Homepage() {
                     {gamesPlayed?.typedChampions?.bestResult?.quantity}
                   </span>{" "}
                   players in{" "}
-                  <span>{gamesPlayed?.typedChampions?.bestResult?.time}</span>!
-                  Weren't you Mozart in another life?
+                  <span>{gamesPlayed?.typedChampions?.bestResult?.time} seconds</span>!
+                  {" "}{gamesPlayed?.typedChampions?.bestResult?.time<60 ? "Weren't you Mozart in another life?" : "Next time you'll type them all"}
                 </h3>
               ) : (
                 `You are faster than just ${

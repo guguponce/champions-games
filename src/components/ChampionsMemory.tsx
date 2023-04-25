@@ -69,13 +69,14 @@ export default function ChampionsMemory() {
       }, 7000);
     }
   }, [lives]);
-localStorage.clear()
   useEffect(() => {
     level.current = 1;
   }, [reset]);
   useEffect(() => {
     if (level.current > 1) {
       let ls = localStorage.getItem("gamesPlayed");
+      console.log("ls", ls);
+
       if (!!ls) {
         const lsMemory = JSON.parse(ls).memory;
         const newResult = !lsMemory
@@ -143,7 +144,7 @@ localStorage.clear()
         </Modal>
       )}
       {modalOn && (
-        <Modal toggleModalOn={toggleModalOn} buttonText="Start the game!">
+        <Modal toggleModalOn={toggleModalOn} buttonText="Start game!">
           <ModalStart />
         </Modal>
       )}

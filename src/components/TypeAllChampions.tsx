@@ -207,6 +207,7 @@ export default function TypeAllChampions() {
             value={inputValue}
             autoFocus
             onChange={handleChange}
+            autoComplete="off"
           />
         </div>
         <h3 id="typed-players">Players typed: {typedPlayers.length}</h3>

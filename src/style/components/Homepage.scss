@@ -52,8 +52,7 @@
         border-radius: 1rem;
         padding: 1rem;
         margin: 2rem;
-        margin-left: 1rem;
-        
+        // margin-left: 1rem;
         text-align: center;
         color: $white;
         @include flex(row, center, center);
@@ -66,15 +65,15 @@
         &:hover {
           background-color: hsl(237, 100%, 65%);
           outline: 1px solid $white;
+
         }
         &:active {
           background-color: #646cff;
         }
-        & a {
-        }
       }
       .game-played {
         // margin-top: 0;
+        min-width: 150px;
         margin: 2rem;
         margin-left:  calc((214px - 111.68px) *3 / 10);
         margin-right:  calc((214px - 111.68px) *7 / 10);;
