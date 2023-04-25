@@ -53,6 +53,9 @@
         padding: 1rem;
         margin: 2rem;
         margin-left: 1rem;
+        
+        text-align: center;
+        color: $white;
         @include flex(row, center, center);
         @media (max-width: $regmob-width) {
           width: clamp(100px, 20%, 150px);
@@ -67,9 +70,7 @@
         &:active {
           background-color: #646cff;
         }
-        a {
-          text-align: center;
-          color: $white;
+        & a {
         }
       }
       .game-played {

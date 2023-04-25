@@ -26,7 +26,6 @@ export default function Homepage() {
       setGamesPlayed(JSON.parse(ls));
     }
   }, []);
-  console.log(!!gamesPlayed);
 
   return (
     <div id="homepage-container">
@@ -38,13 +37,14 @@ export default function Homepage() {
         className={!!gamesPlayed ? "games-played-container" : ""}
       >
         <div className={"game-container"}>
-          <div
+          <Link
+            to="/guess-your-champion"
             className={`game-link-box ${
               !!gamesPlayed?.guessChampion ? "game-played" : ""
             }`}
           >
-            <Link to="/guess-your-champion">Guess you champion</Link>
-          </div>
+            Guess you champion
+          </Link>
           {!!gamesPlayed?.guessChampion?.bestResult && (
             <div className="game-results">
               <h2>
@@ -66,13 +66,15 @@ export default function Homepage() {
           )}
         </div>
         <div className="game-container">
-          <div
+          <Link
+            to="/champions-memory"
             className={`game-link-box ${
               !!gamesPlayed?.memory ? "game-played" : ""
             }`}
           >
-            <Link to="/champions-memory">Champions Memory</Link>
-          </div>
+            Champions Memory
+          </Link>
+
           {!!gamesPlayed?.memory?.bestResult && (
             <div className="game-results">
               <h2>
@@ -93,13 +95,15 @@ export default function Homepage() {
           )}
         </div>
         <div className="game-container">
-          <div
+          <Link
+            to="/type-champions"
             className={`game-link-box ${
               !!gamesPlayed?.typedChampions ? "game-played" : ""
             }`}
           >
-            <Link to="/type-champions">Type all Champions</Link>
-          </div>
+            Type all Champions
+          </Link>
+
           {!!gamesPlayed?.typedChampions?.bestResult && (
             <div className="game-results">
               <h2>
@@ -112,8 +116,8 @@ export default function Homepage() {
                 <h3>
                   <span>
                     {gamesPlayed?.typedChampions?.bestResult?.quantity}
-                  </span> players
-                  in{" "}
+                  </span>{" "}
+                  players in{" "}
                   <span>{gamesPlayed?.typedChampions?.bestResult?.time}</span>!
                   Weren't you Mozart in another life?
                 </h3>
